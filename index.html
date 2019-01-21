@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dark Mode</title>
+  <style>
+    :root { --bg: #f1f2f6; --text: #2c3e50; --card: white; }
+    [data-theme="dark"] { --bg: #1e1e2f; --text: #dfe4ea; --card: #2f3542; }
+    body { background: var(--bg); color: var(--text); height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; transition: 0.3s; }
+    .card { background: var(--card); padding: 40px; border-radius: 16px; width: 300px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .toggle { margin-top: 20px; width: 60px; height: 30px; background: #ccc; border-radius: 30px; position: relative; cursor: pointer; }
+    .toggle::after { content:''; width: 26px; height: 26px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: 0.3s; }
+    .toggle.active { background: #f368e0; }
+    .toggle.active::after { left: 32px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Dark Mode Toggle</h2>
+    <p>Click to switch theme</p>
+    <div class="toggle" onclick="this.classList.toggle('active'); document.documentElement.dataset.theme = this.classList.contains('active') ? 'dark' : ''"></div>
+  </div>
+</body>
+</html>
